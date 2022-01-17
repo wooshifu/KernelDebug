@@ -1,0 +1,21 @@
+name: build linux kernel
+
+on: [ push, pull_request ]
+
+jobs:
+  build-linux-kernel:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: build linux kernel image, then push docker image to docker hub
+        shell: bash
+        if: true
+        run: |
+          docker-compose -f docker-compose.yaml build kernel
+          docker tag kernel ${{secrets.DOCKERHUBNAME}}/kernel:latest
+          docker login -u ${{secrets.DOCKERHUBNAME}} -p ${{secrets.DOCKERHUBTOKEN}}
+          docker push ${{secrets.DOCKERHUBNAME}}/kernel:latest

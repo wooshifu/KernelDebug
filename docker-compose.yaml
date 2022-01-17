@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+  kernel:
+    image: kernel
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./linux:/linux
