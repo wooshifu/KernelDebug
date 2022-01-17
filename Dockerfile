@@ -11,6 +11,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /linux
 
 RUN apt update && \
-    apt install build-essential gcc gdb yasm nasm flex bison openssl libssl-dev libncurses-dev libelf-dev -y
+    apt install build-essential gcc gdb yasm nasm bc flex bison openssl libssl-dev libncurses-dev libelf-dev -y
 
 ENTRYPOINT [ "bash", "/build/buildKernel.sh" ]
