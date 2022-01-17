@@ -13,4 +13,4 @@ WORKDIR /linux
 RUN apt update && \
     apt install build-essential gcc gdb yasm nasm flex bison openssl libssl-dev libncurses-dev libelf-dev -y
 
-ENTRYPOINT [ "bash", "/linux/buildKernel.sh" ]
+ENTRYPOINT [ "bash", "/build/buildKernel.sh" ]
