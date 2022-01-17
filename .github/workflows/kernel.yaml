@@ -24,7 +24,7 @@ jobs:
         with:
           name: kernel
           path: |
-            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/arch/x86/boot/bzImage
-            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/vmlinux*
-            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/System.map
+            ${{github.workspace}}/${{github.repository}}/linux/arch/x86/boot/bzImage
+            ${{github.workspace}}/${{github.repository}}/linux/vmlinux*
+            ${{github.workspace}}/${{github.repository}}/linux/System.map
           if-no-files-found: error
