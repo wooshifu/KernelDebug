@@ -13,6 +13,9 @@ WORKDIR /linux
 RUN apt update && \
     apt install build-essential yasm nasm flex bison openssl libssl-dev libncurses-dev libelf-dev -y
 
+RUN pwd
+
+RUN ls -al
 
 RUN make olddefconfig && \
     ./scripts/config --set-str SYSTEM_TRUSTED_KEYS "" && \
