@@ -19,3 +19,12 @@ jobs:
           docker tag kernel ${{secrets.DOCKERHUBNAME}}/kernel:latest
           docker login -u ${{secrets.DOCKERHUBNAME}} -p ${{secrets.DOCKERHUBTOKEN}}
           docker push ${{secrets.DOCKERHUBNAME}}/kernel:latest
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: kernel
+          path: |
+            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/arch/x86/boot/bzImage
+            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/vmlinux*
+            ${{GITHUB_WORKSPACE}}/${{GITHUB_REPOSITORY}}/linux/System.map
+          if-no-files-found: error
